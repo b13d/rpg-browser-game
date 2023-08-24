@@ -2,26 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body {
+  background-color: blanchedalmond;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@keyframes changeScale {
+  from {
+    transform: scale(1);
+    transform: translateY(0);
+  }
+
+  to {
+    transform: scale(1.2);
+    transform: translateY(5px);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.mission__animation {
+  animation-duration: 1s;
+  animation-name: changeScale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  /* animation-duration: alternate; */
+}
+
+.mission {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mission__animation {
+  display: block;
+  padding-bottom: 10px;
+}
+
+.mission__text {
+  font-size: 1.2rem;
+  color: rgb(206, 215, 223);
+  -webkit-text-stroke: .1px #272727;
 }
