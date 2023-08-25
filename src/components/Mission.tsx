@@ -20,9 +20,11 @@ export default function Mission({
   const currentMission = apiMission.find((mission) => mission.id === missionID);
   const [showGameField, setShowGameField] = useState(false);
 
-  setCookie("enemyID", missionID);
+  useEffect(() => {
+    setCookie("enemyID", missionID);
+  }, [])
 
-  console.log(document.cookie);
+  // console.log(document.cookie);
 
   return (
     <>
