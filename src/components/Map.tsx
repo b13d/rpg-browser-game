@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import Mission from "./Mission";
 import { Cinzel } from "next/font/google";
-import { Container, Box, Typography } from "@mui/material";
+import { Container, Box, Typography, Button } from "@mui/material";
 import Circle from "./Circle";
 import ClearIcon from "@mui/icons-material/Clear";
+import { motion } from "framer-motion";
 
 const cinzel = Cinzel({ subsets: ["latin"], weight: "800" });
 
@@ -60,11 +61,21 @@ export default function Map() {
         </main>
       </section>
       {showMissionInfo && (
-        <Box className="h-[400px] w-[250px] absolute top-[20%]  rounded-md p-5 text-amber-50 bg-[#0000006c]">
-          <div className="flex justify-end" onClick={() => setShowMissionInfo(false)}>
+        <Box
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+          key={missionID}
+          component={motion.div}
+          className="h-[400px] w-[250px] absolute top-[20%] flex flex-col justify-between p-5 text-amber-50 border-2 border-[#2b2929] rom-indigo-500 from-50% from-[#1d1d1d] via-[#252424] via-70% to-[#252424] to-50%  bg-gradient-to-tr"
+        >
+          <div
+            className="flex justify-end"
+            onClick={() => setShowMissionInfo(false)}
+          >
             <ClearIcon color="error" className="cursor-pointer" />
           </div>
-          <Mission missionID={missionID} />
+          <Mission missionID={missionID} setShowMissionInfo={setShowMissionInfo}/>
         </Box>
       )}
     </>

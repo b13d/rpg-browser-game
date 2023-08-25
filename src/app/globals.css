@@ -6,6 +6,12 @@ body {
   background-color: blanchedalmond;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 @keyframes changeScale {
   from {
     transform: scale(1);
@@ -23,7 +29,6 @@ body {
   animation-name: changeScale;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  /* animation-duration: alternate; */
 }
 
 .mission {
@@ -40,5 +45,5 @@ body {
 .mission__text {
   font-size: 1.2rem;
   color: rgb(206, 215, 223);
-  -webkit-text-stroke: .1px #272727;
+  -webkit-text-stroke: 0.1px #272727;
 }
